@@ -1,31 +1,42 @@
 #include <array>
 #include <iostream>
-#include "TTT.h"
+#include "STTT.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    array<array<TicTacToe,3>,3> Games;
-    int col=0,lin=0;
-    TicTacToe Game;
-    pair<bool,char> winner;
-    while (1)
-    {
-        cout << Game.getBoardString().str()<<endl;
+   SuperTicTacToe board;
 
-        cin>>col;
-        cin>>lin;
-        winner = Game.play(pair(col,lin));
-        if (winner.first)
-        {
-            cout << "winner:" << winner.second<<endl;
-            break;
-        }
-        
+    int X=0,Y=0,x=0,y=0;
+    cout <<board.getSuperBoardString().str()<<endl;
+    pair<pair<bool,char>,pair<int,int>> WinCon(pair(false,' '),pair(-1,-1));
+    while (true)
+    {
+
+    if (WinCon.second.first == -1)
+    {
+        cout<<"select a Board Coordinate \"Col Line\""<<endl;
+        cin >>X>>Y;
+    }else{
+        cout << "playing in board:(" <<WinCon.second.first<<","<<WinCon.second.second<<")"<<endl;
+        X = WinCon.second.first;
+        Y = WinCon.second.second;
     }
-        
-  
+    cout << "current player:("<<board.getChar()<<")"<<endl;
+    cout<<"select a Coordinate \"Col Line\""<<endl;
+    cin >>x>>y;
+    WinCon = board.play(pair(X,Y),pair(x,y));
+    cout <<board.getSuperBoardString().str()<<endl;
+
+    if (WinCon.first.first)
+    {
+        cout<<WinCon.first.second<<"won"<<endl;
+         break;
+    }
+    
+
+    }
     
     
 
@@ -33,7 +44,3 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-
-/*
-
-*/

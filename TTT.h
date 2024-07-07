@@ -10,38 +10,39 @@ private:
     int count;
     array <array<char,3>,3> m_Board;
     pair<bool,char>m_winner;
-    bool currentPlayer;
-    char currentChar;
+    
 
     pair<bool,char> checkWin();     //* done
     char checkArr(array<char,3>Arr);//* done
-    void resetBoard();              //* done
 
     
 
 public:
     TicTacToe(/* args */);
     ~TicTacToe();
+    
+    void resetBoard(char);              //* done
 
     stringstream getBoardString();        //* done
     array <array<char,3>,3> getBoard();
 
-    pair<bool,char> play(pair<int,int> coordinate);
+    pair<bool,char> play(pair<int,int> coordinate,char currentchar);
+    bool checkpos(pair<int,int>coordinate);
 };
 
 
 
-TicTacToe::TicTacToe(/* args */) : m_winner(true,' '),count(0),currentPlayer(false),currentChar(' ')
+TicTacToe::TicTacToe(/* args */) : m_winner(true,' '),count(0)
 {
-    resetBoard();
+    resetBoard(' ');
 }
 
 TicTacToe::~TicTacToe()
 {
 }
 
-void TicTacToe::resetBoard(){
-    m_Board.fill({' ',' ',' '});
+void TicTacToe::resetBoard(char C){
+    m_Board.fill({C,C,C});
 }
 
 char TicTacToe::checkArr(array<char,3>Arr){
@@ -131,22 +132,19 @@ array <array<char,3>,3> TicTacToe::getBoard(){
     return m_Board;
 }
 
-pair<bool,char> TicTacToe::play(pair<int,int> coordinate){ //* returns [true,X] or [true,O] depending on who won, otherwise returns [false, ]
+pair<bool,char> TicTacToe::play(pair<int,int> coordinate,char currentChar){ //* returns [true,X] or [true,O] depending on who won, otherwise returns [false, ]
     count++;
     pair<bool,char> check(false,' ');
 
     if(count == 9){
         if (m_Board.at(coordinate.first).at(coordinate.second)==' '){
             
-            if (currentPlayer){currentPlayer=false;}else{currentPlayer=true;} //* cycle players
-            if (currentPlayer){currentChar='O';}else{currentChar='X';}        //* set char
-
-            m_Board.at(coordinate.first).at(coordinate.second) = currentChar;;//* update board
+            m_Board.at(coordinate.first).at(coordinate.second) = currentChar;//* update board
             check = checkWin();
 
             if (!check.first)
             {   
-                resetBoard();
+                resetBoard(' ');
             }}
             else{return pair(false,' ');}
             
@@ -155,9 +153,6 @@ pair<bool,char> TicTacToe::play(pair<int,int> coordinate){ //* returns [true,X] 
     if (count < 9)
     {
         if (m_Board.at(coordinate.first).at(coordinate.second)==' '){
-            
-            if (currentPlayer){currentPlayer=false;}else{currentPlayer=true;} //* cycle players
-            if (currentPlayer){currentChar='O';}else{currentChar='X';}        //* set char
 
             m_Board.at(coordinate.first).at(coordinate.second) = currentChar;;//* update board
             check = checkWin();
@@ -167,5 +162,14 @@ pair<bool,char> TicTacToe::play(pair<int,int> coordinate){ //* returns [true,X] 
 
 
     return check;
+}
+
+bool TicTacToe::checkpos(pair<int,int>coordinate){ //returns True or false depending if the position is occupied or not
+    if (m_Board.at(coordinate.first).at(coordinate.second)==' '){
+        return false;
+    }else{
+        return true;
+    }
+
 }
 #endif
