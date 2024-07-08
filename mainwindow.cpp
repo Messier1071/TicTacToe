@@ -154,6 +154,11 @@ void MainWindow::Update_0_0(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -177,6 +182,11 @@ void MainWindow::Update_0_1(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -200,6 +210,11 @@ void MainWindow::Update_0_2(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -223,6 +238,11 @@ void MainWindow::Update_1_0(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -246,6 +266,11 @@ void MainWindow::Update_1_1(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -269,6 +294,11 @@ void MainWindow::Update_1_2(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -291,6 +321,11 @@ void MainWindow::Update_2_0(){    std::array <std::array<char,3>,3> T_board = bo
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -314,6 +349,11 @@ void MainWindow::Update_2_1(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }
@@ -337,6 +377,11 @@ void MainWindow::Update_2_2(){
             std::string placeholder= "";
             placeholder += T_board.at(i).at(j);
             Buttons.at(k)->setText(QString::fromStdString(placeholder));
+            if(T_board.at(i).at(j)!=' '){
+                Buttons.at(k)->setEnabled(false);
+            }else{
+                Buttons.at(k)->setEnabled(true);
+            }
             k++;
         }
     }

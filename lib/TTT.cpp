@@ -107,19 +107,6 @@ pair<bool,char> TicTacToe::play(pair<int,int> coordinate,char currentChar){ //* 
     count++;
     pair<bool,char> check(false,' ');
 
-    if(count == 9){
-        if (m_Board.at(coordinate.first).at(coordinate.second)==' '){
-            
-            m_Board.at(coordinate.first).at(coordinate.second) = currentChar;//* update board
-            check = checkWin();
-
-            if (!check.first)
-            {   
-                resetBoard(' ');
-            }}
-            else{return pair(false,' ');}
-            
-            }
 
     if (count < 9)
     {
@@ -130,6 +117,24 @@ pair<bool,char> TicTacToe::play(pair<int,int> coordinate,char currentChar){ //* 
             }
         else{return pair(false,' ');}
     }
+
+    if(count == 9){
+        if (m_Board.at(coordinate.first).at(coordinate.second)==' '){
+            
+            m_Board.at(coordinate.first).at(coordinate.second) = currentChar;//* update board
+            check = checkWin();
+
+            if (!check.first)
+            {   
+                resetBoard(' ');
+                count = 0;
+            }}
+            
+            else{return pair(false,' ');}
+            
+            }
+
+    
 
 
     return check;
