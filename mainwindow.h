@@ -18,6 +18,7 @@ class MainWindow : public QMainWindow
     SuperTicTacToe board;
     bool BoardSelected;
     std::pair<std::pair<bool,char>,std::pair<int,int>> WinCon;
+    bool GameEnded;
 
 public:
     MainWindow(QWidget *parent = nullptr);

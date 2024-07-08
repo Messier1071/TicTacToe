@@ -1,6 +1,7 @@
 #ifndef STTT_h
 #define STTT_h
 #include "TTT.h"
+#include <iostream>
 using namespace std;
 class SuperTicTacToe : public TicTacToe
 {

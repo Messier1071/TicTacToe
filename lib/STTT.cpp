@@ -6,6 +6,7 @@ SuperTicTacToe::SuperTicTacToe(/* args */)
 
 SuperTicTacToe::~SuperTicTacToe()
 {
+    currentPlayer = false;
 }
 
  char SuperTicTacToe::getChar()
@@ -53,7 +54,7 @@ pair <pair<bool,char>,pair<int,int>>  SuperTicTacToe::play(pair<int,int> BoardCo
     }
     
 
-    if (currentPlayer){currentPlayer=false;}else{currentPlayer=true;} //* cycle players
+    if (currentPlayer){currentPlayer=false;}else{currentPlayer=true;std::cout<<"changing players"<<std::endl;} //* cycle players
     if (currentPlayer){currentChar='O';}else{currentChar='X';}        //* set char
     response = m_SuperBoard.at(BoardCoordinate.first).at(BoardCoordinate.second).play(Coordinate,currentChar);
     // m_SuperBoard.at(0).at(0).resetBoard('a');

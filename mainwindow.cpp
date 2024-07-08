@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     ,WinCon(std::pair(false,' '),std::pair(-1,-1))
     ,BoardSelected(false)
     ,board()
+    ,GameEnded(false)
+
 
 {
     ui->setupUi(this);
@@ -17,6 +19,9 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::play(std::pair<int, int> UIBoardCoordinate, std::pair<int, int> UICoordinate){
+    if(GameEnded){
+        QApplication::quit();
+    }
 
 
     if (WinCon.second.first == -1)
@@ -47,6 +52,7 @@ void MainWindow::play(std::pair<int, int> UIBoardCoordinate, std::pair<int, int>
 
         ui->menuplaceholder->setTitle(QString::fromStdString(placeholder2));
         cout<<WinCon.first.second<<"won"<<endl;
+        GameEnded = true;
         //QApplication::quit();
     }
 
